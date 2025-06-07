@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Go Premium</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #f9fafb, #e1ecf7);
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 640px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+      margin-bottom: 30px;
+      color: #444;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+    }
+
+    .paypal-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .note {
+      font-size: 0.95rem;
+      color: #888;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Upgrade to Premium</h1>
+    <p>
+      Premium members unlock the ultimate experience across our platform. Support us and enjoy:
+    </p>
+
+    <ul>
+      <li><strong>Ad-free experience</strong> – browse and play without distractions.</li>
+      <li><strong>Exclusive access to Games Hub 76</strong> – a special area with premium-only games.</li>
+      <li><strong>Priority access</strong> to new features and updates.</li>
+    </ul>
+
+    <div class="paypal-wrapper">
+      <div id="paypal-button-container-P-6HF457702J659682DNBBRLEI"></div>
+    </div>
+
+    <p class="note">You will be redirected to PayPal to complete your subscription.</p>
+  </div>
+
+  <!-- PayPal SDK -->
+  <script src="https://www.paypal.com/sdk/js?client-id=Ac5ks1w-5Q6cvd1Cpv6pg1M5GbZ_RC4zBUaXnEXBDQI5qjI-hqufvIKHHIv3EB4sA6-nQ2m4EnyQ2FDx&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+
+  <script>
+    paypal.Buttons({
+      style: {
+        shape: 'rect',
+        color: 'gold',
+        layout: 'vertical',
+        label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          plan_id: 'P-6HF457702J659682DNBBRLEI'
+        });
+      },
+      onApprove: function(data, actions) {
+        // Redirect after successful subscription
+        window.location.href = "https://sites.google.com/view/superhubbedgames/premium";
+      }
+    }).render('#paypal-button-container-P-6HF457702J659682DNBBRLEI');
+  </script>
+
+</body>
+</html>
